@@ -26,7 +26,7 @@ class SeasonInfoController extends Controller
         }
     }
     public function addSeasonHarvestInfo(Request $request){
-        // return $request;
+        return $request;
         try {
             $season_harvest_info = season_harvest_info::insert([
                 'cropping_season_id' => $request->cropping_season_id,
