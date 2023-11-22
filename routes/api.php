@@ -12,7 +12,8 @@ use App\Http\Controllers\RecommendedCropCalendarController;
 use App\Http\Controllers\ActivitiesFertsController;
 use App\Http\Controllers\ActivitiesChemicalController;
 use App\Http\Controllers\DetailsCheckerController;
-use App\Http\Controllers\SeasonInfoController;
+use App\Http\Controllers\SeasonHarvestInfoController;
+use App\Http\Controllers\SeasonOtherExpensesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,7 @@ Route::post('Recommended_crop_calendar_detailsCheck', [DetailsCheckerController:
 Route::post('Activities_detailsCheck', [DetailsCheckerController::class, 'Activities_detailsCheck'])->middleware('jwtAuth'); // get version details of farm
 Route::post('Activities_fert_detailsCheck', [DetailsCheckerController::class, 'Activities_fert_detailsCheck'])->middleware('jwtAuth'); // get version details of farm
 Route::post('season_harvest_info_detailsCheck', [DetailsCheckerController::class, 'season_harvest_info_detailsCheck'])->middleware('jwtAuth'); // get version details of farm
+Route::post('season_other_expenses_detailsCheck', [DetailsCheckerController::class, 'season_other_expenses_detailsCheck'])->middleware('jwtAuth'); // get version details of farm
 
 //get all using user id checker
 Route::get('cropping_season_getAll', [DetailsCheckerController::class, 'cropping_season_getAll'])->middleware('jwtAuth'); 
@@ -102,11 +104,11 @@ Route::post('cropping_season/addActivitiesChemical', [ActivitiesChemicalControll
 Route::post('cropping_season/updateActivitiesChemical', [ActivitiesChemicalController::class, 'updateActivitiesChemical'])->middleware('jwtAuth'); //updateActivitiesChemical
 
 //Season harvest info
-Route::get('cropping_season/getSeasonHarvestInfo', [SeasonInfoController::class, 'getSeasonHarvestInfo'])->middleware('jwtAuth'); // getSeasonHarvestInfo
-Route::post('cropping_season/addSeasonHarvestInfo', [SeasonInfoController::class, 'addSeasonHarvestInfo'])->middleware('jwtAuth');  // addSeasonHarvestInfo
-Route::post('cropping_season/updateSeasonHarvestInfo', [SeasonInfoController::class, 'updateSeasonHarvestInfo'])->middleware('jwtAuth'); //updateSeasonHarvestInfo
+Route::get('cropping_season/getSeasonHarvestInfo', [SeasonHarvestInfoController::class, 'getSeasonHarvestInfo'])->middleware('jwtAuth'); // getSeasonHarvestInfo
+Route::post('cropping_season/addSeasonHarvestInfo', [SeasonHarvestInfoController::class, 'addSeasonHarvestInfo'])->middleware('jwtAuth');  // addSeasonHarvestInfo
+Route::post('cropping_season/updateSeasonHarvestInfo', [SeasonHarvestInfoController::class, 'updateSeasonHarvestInfo'])->middleware('jwtAuth'); //updateSeasonHarvestInfo
 
 //Season harvest info change the controller
-Route::get('cropping_season/getSeasonOtherExpenses', [SeasonInfoController::class, 'getSeasonOtherExpenses'])->middleware('jwtAuth'); // getSeasonOtherExpenses
-Route::post('cropping_season/addSeasonOtherExpenses', [SeasonInfoController::class, 'addSeasonOtherExpenses'])->middleware('jwtAuth');  // addSeasonOtherExpenses
-Route::post('cropping_season/updateSeasonOtherExpenses', [SeasonInfoController::class, 'updateSeasonOtherExpenses'])->middleware('jwtAuth'); //updateSeasonOtherExpenses
+Route::get('cropping_season/getSeasonOtherExpenses', [SeasonOtherExpensesController::class, 'getSeasonOtherExpenses'])->middleware('jwtAuth'); // getSeasonOtherExpenses
+Route::post('cropping_season/addSeasonOtherExpenses', [SeasonOtherExpensesController::class, 'addSeasonOtherExpenses'])->middleware('jwtAuth');  // addSeasonOtherExpenses
+Route::post('cropping_season/updateSeasonOtherExpenses', [SeasonOtherExpensesController::class, 'updateSeasonOtherExpenses'])->middleware('jwtAuth'); //updateSeasonOtherExpenses

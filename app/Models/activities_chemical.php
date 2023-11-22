@@ -13,6 +13,8 @@ class activities_chemical extends Model
     public $timestamps = false;
     protected $fillable = [
         'recomtask_id',
+        'user_id',
+
         'chemical_name',
         'chem_quantity',
         'chem_expense',

@@ -26,6 +26,8 @@ class ActivitiesFertsController extends Controller
     public function addActivitiesFert(Request $request){
         try {
             $Activities_fert = Activities_fert::insert([
+                'user_id' => Auth::user()->id,
+
                 'recomtask_id' => $request->recomtask_id,
                 'fertilizer_name' => $request->fertilizer_name,
                 'fert_quantity' => $request->fert_quantity,

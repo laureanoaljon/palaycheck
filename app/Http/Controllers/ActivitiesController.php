@@ -36,6 +36,7 @@ class ActivitiesController extends Controller
         
         try {
             $Activities = Activities::insert([
+                'user_id' => Auth::user()->id,
                 'cropping_season_id' => $request->cropping_season_id,
                 'is_done' => $request->is_done,
                 'category' => $request->category,
@@ -51,7 +52,6 @@ class ActivitiesController extends Controller
                 'versionNumber' => $request->versionNumber,
                 'date_updated' => $request->date_updated,
                 'is_archived' => $request->is_archived,
-                'user_id' => $request->user_id,
             ]);
             if (!$Activities) {
                 return response()->json(['status' => 'failed','message' => 'Not created']);
@@ -92,7 +92,6 @@ class ActivitiesController extends Controller
                 'versionNumber' => $request->versionNumber,
                 'date_updated' => $request->date_updated,
                 'is_archived' => $request->is_archived,
-                'user_id' => $request->user_id,
 
             ]);
             if (!$Activities) {
@@ -108,14 +107,14 @@ class ActivitiesController extends Controller
 
 
     }
-    public function deleteCropSeasonActivity(Request $request){
-        $Activities =  Activities::find($request->id);
-        if (!$Activities) {
-            return response()->json(['status'=>'failed', 'message' => 'Cannot find this Activities']);
-        } else {
-            $Activities->delete();
-            return response()->json(['status'=>'success', 'message' => 'Activities Deleted']);
-        }
-    }
+    // public function deleteCropSeasonActivity(Request $request){
+    //     $Activities =  Activities::find($request->id);
+    //     if (!$Activities) {
+    //         return response()->json(['status'=>'failed', 'message' => 'Cannot find this Activities']);
+    //     } else {
+    //         $Activities->delete();
+    //         return response()->json(['status'=>'success', 'message' => 'Activities Deleted']);
+    //     }
+    // }
 
 }

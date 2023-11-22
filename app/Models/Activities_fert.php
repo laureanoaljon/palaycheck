@@ -13,6 +13,7 @@ class Activities_fert extends Model
     public $timestamps = false;
     protected $fillable = [
         'recomtask_id',
+        'user_id',
         'fertilizer_name',
         'fert_quantity',
         'fert_expense',

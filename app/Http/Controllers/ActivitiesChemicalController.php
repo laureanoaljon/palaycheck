@@ -27,6 +27,7 @@ class ActivitiesChemicalController extends Controller
         // return $request;
         try {
             $activities_chemical = activities_chemical::insert([
+                'user_id' => Auth::user()->id,
                 'recomtask_id' => $request->recomtask_id,
                 'chemical_name' => $request->chemical_name,
                 'chem_quantity' => $request->chem_quantity,

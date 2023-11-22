@@ -13,6 +13,8 @@ use App\Models\Activities;
 use App\Models\Activities_fert;
 use App\Models\activities_chemical;
 use App\Models\season_harvest_info;
+use App\Models\season_other_expenses;
+
 
 
 
@@ -86,8 +88,16 @@ class DetailsCheckerController extends Controller
             return response()->json(['status' => 'fail', 'message' => 'Season harvest not found']);
         }
     }
+    public function season_other_expenses_detailsCheck(Request $request){
+        $season_other_expenses = season_other_expenses::select('id','cropping_season_id','versionNumberdexxx', 'date_updated')->where('id', $request->season_other_expenses_id)->orderBy('id', 'desc')->first();
+        if ($season_other_expenses) {
+            return response()->json(['status' => 'success', 'Season_harvest' => $season_other_expenses]);
+        } else {
+            return response()->json(['status' => 'fail', 'message' => 'Season harvest not found']);
+        }
+    }
 
-                                                                                                                                                                                                                    // ----------
+                         // ---------------------------------------------------------------------------------- GET ALL
     public function cropping_season_getAll(Request $request){
         // return $request;
         try {

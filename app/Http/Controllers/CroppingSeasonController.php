@@ -22,18 +22,16 @@ class CroppingSeasonController extends Controller
     }
 
     public function addCropSeason(Request $request){
-        // return "dexter";
-        // return $request;
         $request->validate([
             'farm_id' => 'required',
             'rice_variety' => 'required',
             'seeding_date' => 'required',
             'totalweight_tobeEstablished' => 'required',
             'totalExpense_forSeed' => 'required',
-            'user_id' => 'required',
 
         ]);
         $Cropping_season = Cropping_season::insert([
+            'user_id' => Auth::user()->id,
             'farm_id' => $request->farm_id,
             'rice_variety' => $request->rice_variety,
             'rice_variety_source' => $request->rice_variety_source,
@@ -56,7 +54,6 @@ class CroppingSeasonController extends Controller
             'date_updated' => $request->date_updated,
             'is_archived' => $request->is_archived,
 
-            'user_id' => $request->user_id,
 
         ]);
 
@@ -83,7 +80,6 @@ class CroppingSeasonController extends Controller
             'totalExpense_forSeed' => 'required',
             'fert_guide_used' => 'required',
             //'fert_guide_used_details' => 'required',
-            'user_id' => 'required',
 
             
             
@@ -97,13 +93,9 @@ class CroppingSeasonController extends Controller
             'totalweight_tobeEstablished' => $request->totalweight_tobeEstablished,
             'totalExpense_forSeed' => $request->totalExpense_forSeed,
             'fert_guide_used' => $request->fert_guide_used,
-            // 'fert_guide_used_details' => $request->fert_guide_used_details,
-
             'versionNumber' => $request->versionNumber,
             'date_updated' => $request->date_updated,
             'is_archived' => $request->is_archived,
-            'user_id' => $request->user_id,
-
 
         ]);
         if (!$Cropping_season) {

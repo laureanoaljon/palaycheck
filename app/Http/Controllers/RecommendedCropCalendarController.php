@@ -28,6 +28,7 @@ class RecommendedCropCalendarController extends Controller
         // return $request;
         try {
             $Recommended_crop_calendar = Recommended_crop_calendar::insert([
+                'user_id' => Auth::user()->id,
                 'cropping_season_id' => $request->cropping_season_id,
                 'timing' => $request->timing,
                 'category' => $request->category,
@@ -50,7 +51,6 @@ class RecommendedCropCalendarController extends Controller
                 'date_updated' => $request->date_updated,
                 'is_archived' => $request->is_archived,
                 
-                'user_id' => $request->user_id,
 
             ]);
     
@@ -91,8 +91,6 @@ class RecommendedCropCalendarController extends Controller
                 'versionNumber' => $request->versionNumber,
                 'date_updated' => $request->date_updated,
                 'is_archived' => $request->is_archived,
-
-                'user_id' => $request->user_id,
 
             ]);
     
