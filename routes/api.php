@@ -14,6 +14,9 @@ use App\Http\Controllers\ActivitiesChemicalController;
 use App\Http\Controllers\DetailsCheckerController;
 use App\Http\Controllers\SeasonHarvestInfoController;
 use App\Http\Controllers\SeasonOtherExpensesController;
+use App\Http\Controllers\ReportBugsController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -112,3 +115,6 @@ Route::post('cropping_season/updateSeasonHarvestInfo', [SeasonHarvestInfoControl
 Route::get('cropping_season/getSeasonOtherExpenses', [SeasonOtherExpensesController::class, 'getSeasonOtherExpenses'])->middleware('jwtAuth'); // getSeasonOtherExpenses
 Route::post('cropping_season/addSeasonOtherExpenses', [SeasonOtherExpensesController::class, 'addSeasonOtherExpenses'])->middleware('jwtAuth');  // addSeasonOtherExpenses
 Route::post('cropping_season/updateSeasonOtherExpenses', [SeasonOtherExpensesController::class, 'updateSeasonOtherExpenses'])->middleware('jwtAuth'); //updateSeasonOtherExpenses
+
+// info change the controller
+Route::post('/addReportBugs', [ReportBugsController::class, 'addReportBugs'])->middleware('jwtAuth');  // addReportBugs

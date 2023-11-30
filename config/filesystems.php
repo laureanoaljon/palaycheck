@@ -56,6 +56,15 @@ return [
             'throw' => false,
         ],
 
+
+        //created this to import images on the path public/bug_images
+        'public/bug_images' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/bug_images'), // Adjust the root path as needed
+            'url' => env('APP_URL').'/storage/bug_images', // Adjust the URL path as needed
+            'visibility' => 'public',
+        ],
+
     ],
 
     /*
