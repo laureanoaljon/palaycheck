@@ -98,10 +98,10 @@ class DetailsCheckerController extends Controller
     }
 
                                                                 // ---------------------------------------------------------------------------------- GET ALL
-    public function cropping_season_getAll(Request $request){
-        // return $request;
+    public function cropping_season_getAll(){
+        // return Auth::user()->id;
         try {
-            $data = Cropping_season::where('user_id', $request->user_id)->orderBy('id', 'desc')->get();
+            $data = Cropping_season::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
             if ($data->isEmpty()) {
                 return response()->json(['status' => 'failed','message' => 'No existed record']);
             }else{
@@ -114,7 +114,7 @@ class DetailsCheckerController extends Controller
     public function recommendedCropCalendar_getAll(Request $request){
         // return $request;
         try {
-            $data = Recommended_crop_calendar::where('user_id', $request->user_id)->orderBy('id', 'desc')->get();
+            $data = Recommended_crop_calendar::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
             if ($data->isEmpty()) {
                 return response()->json(['status' => 'failed','message' => 'No existed record']);
             }else{
@@ -126,7 +126,7 @@ class DetailsCheckerController extends Controller
     }
     public function activities_getAll(Request $request){
         try {
-            $data = Activities::where('user_id', $request->user_id)->orderBy('id', 'desc')->get();
+            $data = Activities::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
             if ($data->isEmpty()) {
                 return response()->json(['status' => 'failed','message' => 'No existed record']);
             }else{
@@ -139,7 +139,7 @@ class DetailsCheckerController extends Controller
 
     public function activities_ferts_getAll(Request $request){
         try {
-            $data = Activities_fert::where('user_id', $request->user_id)->orderBy('id', 'desc')->get();
+            $data = Activities_fert::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
             if ($data->isEmpty()) {
                 return response()->json(['status' => 'failed','message' => 'No existed record']);
             }else{
@@ -151,7 +151,7 @@ class DetailsCheckerController extends Controller
     }
     public function activities_chem_getAll(Request $request){
         try {
-            $data = activities_chemical::where('user_id', $request->user_id)->orderBy('id', 'desc')->get();
+            $data = activities_chemical::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
             if ($data->isEmpty()) {
                 return response()->json(['status' => 'failed','message' => 'No existed record']);
             }else{
@@ -163,7 +163,7 @@ class DetailsCheckerController extends Controller
     }
     public function season_harvest_info_getAll(Request $request){
         try {
-            $data = season_harvest_info::where('user_id', $request->user_id)->orderBy('id', 'desc')->get();
+            $data = season_harvest_info::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
             if ($data->isEmpty()) {
                 return response()->json(['status' => 'failed','message' => 'No existed record']);
             }else{
@@ -175,7 +175,7 @@ class DetailsCheckerController extends Controller
     }
     public function season_other_expenses_getAll(Request $request){
         try {
-            $data = season_other_expenses::where('user_id', $request->user_id)->orderBy('id', 'desc')->get();
+            $data = season_other_expenses::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
             if ($data->isEmpty()) {
                 return response()->json(['status' => 'failed','message' => 'No existed record']);
             }else{
