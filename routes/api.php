@@ -66,10 +66,14 @@ Route::post('Activities_fert_detailsCheck', [DetailsCheckerController::class, 'A
 Route::post('season_harvest_info_detailsCheck', [DetailsCheckerController::class, 'season_harvest_info_detailsCheck'])->middleware('jwtAuth'); // get version details of farm
 Route::post('season_other_expenses_detailsCheck', [DetailsCheckerController::class, 'season_other_expenses_detailsCheck'])->middleware('jwtAuth'); // get version details of farm
 
-//get all using user id checker
+//get all data using user id checker
 Route::get('cropping_season_getAll', [DetailsCheckerController::class, 'cropping_season_getAll'])->middleware('jwtAuth'); 
 Route::get('recommendedCropCalendar_getAll', [DetailsCheckerController::class, 'recommendedCropCalendar_getAll'])->middleware('jwtAuth'); 
 Route::get('activities_getAll', [DetailsCheckerController::class, 'activities_getAll'])->middleware('jwtAuth'); 
+Route::get('activities_ferts_getAll', [DetailsCheckerController::class, 'activities_ferts_getAll'])->middleware('jwtAuth'); 
+Route::get('activities_chem_getAll', [DetailsCheckerController::class, 'activities_chem_getAll'])->middleware('jwtAuth'); 
+Route::get('season_harvest_info_getAll', [DetailsCheckerController::class, 'season_harvest_info_getAll'])->middleware('jwtAuth'); 
+Route::get('season_other_expenses_getAll', [DetailsCheckerController::class, 'season_other_expenses_getAll'])->middleware('jwtAuth'); 
 
 
 //Farm

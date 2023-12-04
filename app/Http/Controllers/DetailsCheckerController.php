@@ -97,7 +97,7 @@ class DetailsCheckerController extends Controller
         }
     }
 
-                         // ---------------------------------------------------------------------------------- GET ALL
+                                                                // ---------------------------------------------------------------------------------- GET ALL
     public function cropping_season_getAll(Request $request){
         // return $request;
         try {
@@ -137,11 +137,53 @@ class DetailsCheckerController extends Controller
         }
     }
 
-    // public function activities_ferts_getAll(Request $request){
-    //     try {
-    //         $data Activties_ferts::where('user_id', $request->user_id)->orderBy('id', 'desc')->get();
-    //     } catch (\Throwable $th) {
-    //         //throw $th;
-    //     }
-    // }
+    public function activities_ferts_getAll(Request $request){
+        try {
+            $data = Activities_fert::where('user_id', $request->user_id)->orderBy('id', 'desc')->get();
+            if ($data->isEmpty()) {
+                return response()->json(['status' => 'failed','message' => 'No existed record']);
+            }else{
+                return response()->json(['status'=>'success', 'data' => $data]);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'Server error responses ','message' => $th]);
+        }
+    }
+    public function activities_chem_getAll(Request $request){
+        try {
+            $data = activities_chemical::where('user_id', $request->user_id)->orderBy('id', 'desc')->get();
+            if ($data->isEmpty()) {
+                return response()->json(['status' => 'failed','message' => 'No existed record']);
+            }else{
+                return response()->json(['status'=>'success', 'data' => $data]);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'Server error responses ','message' => $th]);
+        }
+    }
+    public function season_harvest_info_getAll(Request $request){
+        try {
+            $data = season_harvest_info::where('user_id', $request->user_id)->orderBy('id', 'desc')->get();
+            if ($data->isEmpty()) {
+                return response()->json(['status' => 'failed','message' => 'No existed record']);
+            }else{
+                return response()->json(['status'=>'success', 'data' => $data]);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'Server error responses ','message' => $th]);
+        }
+    }
+    public function season_other_expenses_getAll(Request $request){
+        try {
+            $data = season_other_expenses::where('user_id', $request->user_id)->orderBy('id', 'desc')->get();
+            if ($data->isEmpty()) {
+                return response()->json(['status' => 'failed','message' => 'No existed record']);
+            }else{
+                return response()->json(['status'=>'success', 'data' => $data]);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'Server error responses ','message' => $th]);
+        }
+    }
+    
 }
