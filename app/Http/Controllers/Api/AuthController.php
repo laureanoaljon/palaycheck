@@ -114,10 +114,15 @@ class AuthController extends Controller
         }
         $request->validate([
             'first_name' => 'required',
-            'telepono' => 'required',
+            'first_name' => 'required',
+            // 'telepono' => 'required',
             'rsbsa_no' => 'required',
             // 'civil_status' => 'required',
             // 'region' => 'required',
+            'password' => 'required',
+
+
+
             'province' => 'required',
             'municipality' => 'required',
             'barangay' => 'required',
@@ -125,11 +130,15 @@ class AuthController extends Controller
         ]);
         $user = User::where('id',$request->id)->update([
             'first_name' => $request->first_name,
+
+            'password' => hash::make($request->password),
+
+            'first_name' => $request->first_name,
             'middle_name' => $request->middle_name,
             'last_name' => $request->last_name,
             'birthdate' => $request->birthdate,
             'sex' => $request->sex,
-            'telepono' => $request->telepono,
+            // 'telepono' => $request->telepono,
             'rsbsa_no' => $request->rsbsa_no,
             // 'civil_status' => $request->civil_status,
             // 'region' => $request->region,
@@ -140,6 +149,10 @@ class AuthController extends Controller
             'is_farmerOrg_member' => $request->is_farmerOrg_member,
             'organization_type' => $request->organization_type,
             'organization_name' => $request->organization_name,
+
+            'versionNumber' => $request->versionNumber,
+            'date_updated' => $request->date_updated,
+            'is_archived' => $request->is_archived,
         ]);
         $user = User::find($request->id);
         return response()->json(['status' => 'success','message' => 'User Updated Successfully','user' => $user]);

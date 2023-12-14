@@ -92,6 +92,13 @@ class CroppingSeasonController extends Controller
             'crop_establishment' => $request->crop_establishment,
             'totalweight_tobeEstablished' => $request->totalweight_tobeEstablished,
             'totalExpense_forSeed' => $request->totalExpense_forSeed,
+
+            'is_finished' => $request->is_finished,
+            'harvest_date' => $request->harvest_date,
+            'total_income' => $request->total_income,
+            'netong_income' => $request->netong_income,
+
+
             'fert_guide_used' => $request->fert_guide_used,
             'versionNumber' => $request->versionNumber,
             'date_updated' => $request->date_updated,
